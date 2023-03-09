@@ -31,6 +31,10 @@ module Mongoid
       def bucket(&block)
         @stages << Stage::Bucket.new(&block)
       end
+
+      def lookup(&block)
+        @stages << Stage::Lookup.new(&block)
+      end
     end
   end
 end

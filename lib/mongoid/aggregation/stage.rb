@@ -17,4 +17,5 @@ end
 require "mongoid/aggregation/stage/add_fields"
 require "mongoid/aggregation/stage/bucket"
 require "mongoid/aggregation/stage/group"
+require "mongoid/aggregation/stage/lookup"
 require "mongoid/aggregation/stage/match"
