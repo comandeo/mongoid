@@ -57,7 +57,7 @@ describe '$bucket' do
         end
       end
       match do
-        Mongoid::Criteria.new(Bucket::Result).where(:count.gt => 3)
+        where(:count.gt => 3)
       end
     end.to_a
 

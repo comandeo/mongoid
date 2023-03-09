@@ -31,7 +31,7 @@ describe '$addFields' do
     AddFields::Score.create!(_id: 2, student: 'Ryan', homework: [5, 6, 5], quiz: [8, 8], extra_credit: 8)
   end
 
-  it 'calculates total homework and quiz scores' do
+  it 'aggregates' do
     results = AddFields::Score.aggregate(AddFields::Result) do
       add_fields do
         total_homework { sum(field(:homework)) }

@@ -16,8 +16,8 @@ module Mongoid
       ##########
       # Stages #
       ##########
-      def match
-        @stages << Stage::Match.new(yield)
+      def match(&block)
+        @stages << Stage::Match.new(&block)
       end
 
       def group(&block)

@@ -10,6 +10,8 @@ module Mongoid
         def initialize(field = nil, &block)
           @expr = if field.nil?
             instance_eval(&block)
+          elsif field.is_a?(Expression)
+            field
           else
             Expression::Literal.new(field)
           end

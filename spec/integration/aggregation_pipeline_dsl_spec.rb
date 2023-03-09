@@ -41,7 +41,7 @@ describe 'Aggregation Pipeline DSL' do
     end
 
     results = Order.aggregate(TOQResult1) do
-      match { Order.where(size: 'medium') }
+      match { where(size: 'medium') }
       group do
         _id field(:name)
         total_quantity { sum(field(:quantity)) }
@@ -66,7 +66,7 @@ describe 'Aggregation Pipeline DSL' do
 
     results = Order.aggregate(TOQResult2) do
       match do
-        Order.where(
+        where(
           date: { '$gte' => Date.parse('2020-01-30'), '$lt' => Date.parse('2022-01-30') }
         )
       end

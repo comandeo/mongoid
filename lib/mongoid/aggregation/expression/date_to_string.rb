@@ -14,7 +14,7 @@ module Mongoid
           else
             instance_eval(&date)
           end
-          @format = Expression::String.new(format) if format
+          @format = Expression::Literal.new(format) if format
           set_timezone(timezone)
           @on_null = instance_eval(&on_null) if on_null
         end
