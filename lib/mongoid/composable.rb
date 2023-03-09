@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "mongoid/aggregation"
 require "mongoid/changeable"
 require "mongoid/collection_configurable"
 require "mongoid/findable"
@@ -34,6 +35,7 @@ module Mongoid
     include ActiveModel::Model
     include ActiveModel::ForbiddenAttributesProtection
     include ActiveModel::Serializers::JSON
+    include Aggregation
     include Atomic
     include Changeable
     include Clients
