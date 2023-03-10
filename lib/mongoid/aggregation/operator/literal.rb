@@ -2,8 +2,8 @@
 
 module Mongoid
   module Aggregation
-    class Expression
-      class Literal < Expression
+    class Operator
+      class Literal < Operator
 
         def initialize(value)
           @value = value

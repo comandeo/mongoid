@@ -2,8 +2,8 @@
 
 module Mongoid
   module Aggregation
-    class Expression
-      class FieldPath < Expression
+    class Operator
+      class FieldPath < Operator
         def initialize(field_name)
           @field_path = "$#{field_name}"
         end

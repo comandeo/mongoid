@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'mongoid/aggregation/expression/field_path'
+require 'mongoid/aggregation/operator/field_path'
 
 module Mongoid
   module Aggregation
-    class Expression
-      class Avg < Expression
+    class Operator
+      class Avg < Operator
 
         def initialize(field = nil, &block)
           @expr = if field.nil?

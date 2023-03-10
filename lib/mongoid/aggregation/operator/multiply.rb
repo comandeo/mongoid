@@ -1,15 +1,13 @@
 # frozen_string_literal: true
 
-require 'mongoid/aggregation/expression/field_path'
-
 module Mongoid
   module Aggregation
-    class Expression
-      class Add < Expression
+    class Operator
+      class Multiply < Operator
 
         def initialize(*args)
           @args = args.map do |arg|
-            if arg.is_a?(Expression)
+            if arg.is_a?(Operator)
               arg
             else
               instance_eval(&arg)
@@ -20,7 +18,7 @@ module Mongoid
 
         def compile
           {
-            '$add' => @args.map(&:compile)
+            '$multiply' => @args.map(&:compile)
           }
         end
       end

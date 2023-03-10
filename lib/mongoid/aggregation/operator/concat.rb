@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
-require 'mongoid/aggregation/expression/field_path'
-require 'mongoid/aggregation/expression/literal'
+require 'mongoid/aggregation/operator/field_path'
+require 'mongoid/aggregation/operator/literal'
 
 module Mongoid
   module Aggregation
-    class Expression
-      class Concat < Expression
+    class Operator
+      class Concat < Operator
 
         def initialize(*args)
           @args = args.map do |arg|
-            if arg.is_a?(Expression)
+            if arg.is_a?(Operator)
               arg
             elsif arg.respond_to?(:call)
               instance_eval(&arg)
             else
-              Expression::Literal.new(arg)
+              Operator::Literal.new(arg)
             end
           end
 

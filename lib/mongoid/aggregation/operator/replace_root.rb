@@ -1,7 +1,7 @@
 module Mongoid
   module Aggregation
-    class Stage
-      class ReplaceRoot < Stage
+    class Operator
+      class ReplaceRoot < Operator
         def initialize(&block)
           @replacement = instance_eval(&block)
         end

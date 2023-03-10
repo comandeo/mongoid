@@ -13,5 +13,5 @@ end
 
 require 'mongoid/aggregation/builder'
 require 'mongoid/aggregation/result'
-require 'mongoid/aggregation/stage'
-require 'mongoid/aggregation/expression'
+require 'mongoid/aggregation/operator'
+require 'mongoid/aggregation/operators'

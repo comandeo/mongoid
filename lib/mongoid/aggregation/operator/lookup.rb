@@ -2,8 +2,8 @@
 
 module Mongoid
   module Aggregation
-    class Stage
-      class Lookup < Stage
+    class Operator
+      class Lookup < Operator
         def initialize(&block)
           instance_eval(&block)
         end

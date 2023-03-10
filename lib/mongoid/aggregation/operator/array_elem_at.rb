@@ -1,21 +1,21 @@
 module Mongoid
   module Aggregation
-    class Expression
-      class ArrayElemAt < Expression
+    class Operator
+      class ArrayElemAt < Operator
         def initialize(array, index)
           @array = if array.respond_to?(:call)
             instance_eval(&array)
-          elsif array.is_a?(Expression)
+          elsif array.is_a?(Operator)
             array
           else
-            Expression::Literal.new(array)
+            Operator::Literal.new(array)
           end
           @index = if index.respond_to?(:call)
             instance_eval(&index)
-          elsif index.is_a?(Expression)
+          elsif index.is_a?(Operator)
             index
           else
-            Expression::Literal.new(index)
+            Operator::Literal.new(index)
           end
         end
 

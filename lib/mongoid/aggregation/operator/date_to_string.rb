@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
-require 'mongoid/aggregation/expression/field_path'
-require 'mongoid/aggregation/expression/literal'
+require 'mongoid/aggregation/operator/field_path'
+require 'mongoid/aggregation/operator/literal'
 
 module Mongoid
   module Aggregation
-    class Expression
-      class DateToString < Expression
+    class Operator
+      class DateToString < Operator
 
         def initialize(date, format = nil, timezone = nil, on_null = nil)
-          @date = if date.is_a?(Expression)
+          @date = if date.is_a?(Operator)
             date
           else
             instance_eval(&date)
           end
-          @format = Expression::Literal.new(format) if format
+          @format = Operator::Literal.new(format) if format
           set_timezone(timezone)
           @on_null = instance_eval(&on_null) if on_null
         end
@@ -39,7 +39,7 @@ module Mongoid
           @timezone = if timezone.respond_to?(:call)
             instance_eval(&timezone)
           else
-            Expression::Literal.new(timezone)
+            Operator::Literal.new(timezone)
           end
         end
       end

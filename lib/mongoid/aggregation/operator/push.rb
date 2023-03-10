@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-require 'mongoid/aggregation/expression/field_path'
-require 'mongoid/aggregation/expression/literal'
+require 'mongoid/aggregation/operator/field_path'
+require 'mongoid/aggregation/operator/literal'
 
 module Mongoid
   module Aggregation
-    class Expression
-      class Push < Expression
+    class Operator
+      class Push < Operator
 
         def initialize(expr = nil, &block)
-          if expr.is_a?(Expression)
+          if expr.is_a?(Operator)
             @expr = expr
           else
             @fields = {}

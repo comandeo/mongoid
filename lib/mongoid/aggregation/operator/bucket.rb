@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'mongoid/aggregation/expression/output'
+require 'mongoid/aggregation/operator/output'
 
 module Mongoid
   module Aggregation
-    class Stage
-      class Bucket < Stage
+    class Operator
+      class Bucket < Operator
         def initialize(&block)
           @fields = {}
           instance_eval(&block)
@@ -24,7 +24,7 @@ module Mongoid
         end
 
         def output(&block)
-          @output = Expression::Output.new(&block)
+          @output = Operator::Output.new(&block)
         end
 
         def compile

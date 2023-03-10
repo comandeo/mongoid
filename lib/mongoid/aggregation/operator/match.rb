@@ -2,8 +2,8 @@
 
 module Mongoid
   module Aggregation
-    class Stage
-      class Match < Stage
+    class Operator
+      class Match < Operator
         def initialize(&block)
           @criteria = Mongoid::Criteria.new(criteria_class).instance_eval(&block)
         end

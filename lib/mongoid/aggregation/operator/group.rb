@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
+require 'mongoid/aggregation/operator/field_path'
+
 module Mongoid
   module Aggregation
-    class Expression
-      class Output < Expression
-
+    class Operator
+      class Group < Operator
         def initialize(&block)
           @fields = {}
           instance_eval(&block)
@@ -19,9 +20,12 @@ module Mongoid
         end
 
         def compile
-          @fields.map { |k, v| [k, v.compile] }.to_h
+          {
+            '$group' => @fields.map { |k, v| [k, v.compile] }.to_h
+          }
         end
       end
     end
   end
 end
+

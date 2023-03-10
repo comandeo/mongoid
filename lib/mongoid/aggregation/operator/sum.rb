@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
-require 'mongoid/aggregation/expression/literal'
+require 'mongoid/aggregation/operator/literal'
 
 module Mongoid
   module Aggregation
-    class Expression
-      class Sum < Expression
+    class Operator
+      class Sum < Operator
 
         def initialize(field = nil, &block)
           @expr = if field.nil?
             instance_eval(&block)
-          elsif field.is_a?(Expression)
+          elsif field.is_a?(Operator)
             field
           else
-            Expression::Literal.new(field)
+            Operator::Literal.new(field)
           end
         end
 
