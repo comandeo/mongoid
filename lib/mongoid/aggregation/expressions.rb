@@ -34,6 +34,14 @@ module Mongoid
       def push(*args, &block)
         Expression::Push.new(*args, &block)
       end
+
+      def array_elem_at(field, index)
+        Expression::ArrayElemAt.new(field, index)
+      end
+
+      def merge_objects(*args)
+        Expression::MergeObjects.new(*args)
+      end
     end
   end
 end

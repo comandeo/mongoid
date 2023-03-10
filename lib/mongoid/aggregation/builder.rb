@@ -35,6 +35,30 @@ module Mongoid
       def lookup(&block)
         @stages << Stage::Lookup.new(&block)
       end
+
+      def replace_root(&block)
+        @stages << Stage::ReplaceRoot.new(&block)
+      end
+
+      def project(&block)
+        @stages << Stage::Project.new(&block)
+      end
+
+      def replace_root(&block)
+        @stages << Stage::ReplaceRoot.new(&block)
+      end
+
+      def project(&block)
+        @stages << Stage::Project.new(&block)
+      end
+
+      def replace_root(&block)
+        @stages << Stage::ReplaceRoot.new(&block)
+      end
+
+      def project(&block)
+        @stages << Stage::Project.new(&block)
+      end
     end
   end
 end

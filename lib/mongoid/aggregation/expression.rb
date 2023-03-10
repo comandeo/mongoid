@@ -2,11 +2,13 @@
 
 require 'mongoid/aggregation/expressions'
 require 'mongoid/aggregation/expression/add'
+require 'mongoid/aggregation/expression/array_elem_at'
 require 'mongoid/aggregation/expression/avg'
 require 'mongoid/aggregation/expression/concat'
 require 'mongoid/aggregation/expression/date_to_string'
 require 'mongoid/aggregation/expression/field_path'
 require 'mongoid/aggregation/expression/literal'
+require 'mongoid/aggregation/expression/merge_objects'
 require 'mongoid/aggregation/expression/multiply'
 require 'mongoid/aggregation/expression/output'
 require 'mongoid/aggregation/expression/push'
